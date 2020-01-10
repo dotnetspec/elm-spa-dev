@@ -16745,6 +16745,26 @@ var $mdgriffith$elm_ui$Element$paddingXY = F2(
 				y,
 				x));
 	});
+var $mdgriffith$elm_ui$Internal$Model$AsRow = {$: 'AsRow'};
+var $mdgriffith$elm_ui$Internal$Model$asRow = $mdgriffith$elm_ui$Internal$Model$AsRow;
+var $mdgriffith$elm_ui$Element$row = F2(
+	function (attrs, children) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asRow,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentLeft + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.contentCenterY)),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+						attrs))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
+	});
 var $mdgriffith$elm_ui$Internal$Model$Class = F2(
 	function (a, b) {
 		return {$: 'Class', a: a, b: b};
@@ -16802,6 +16822,17 @@ var $mdgriffith$elm_ui$Element$Background$color = function (clr) {
 			'background-color',
 			clr));
 };
+var $mdgriffith$elm_ui$Internal$Flag$borderColor = $mdgriffith$elm_ui$Internal$Flag$flag(28);
+var $mdgriffith$elm_ui$Element$Border$color = function (clr) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$borderColor,
+		A3(
+			$mdgriffith$elm_ui$Internal$Model$Colored,
+			'bc-' + $mdgriffith$elm_ui$Internal$Model$formatColorClass(clr),
+			'border-color',
+			clr));
+};
 var $mdgriffith$elm_ui$Internal$Flag$fontColor = $mdgriffith$elm_ui$Internal$Flag$flag(14);
 var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
 	return A2(
@@ -16856,80 +16887,15 @@ var $mdgriffith$elm_ui$Element$link = F2(
 				_List_fromArray(
 					[label])));
 	});
-var $author$project$Ui$viewButton = function (_v0) {
-	var label = _v0.a;
-	var url = _v0.b;
-	return A2(
-		$mdgriffith$elm_ui$Element$link,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$Background$color($author$project$Ui$colors.coral),
-				$mdgriffith$elm_ui$Element$Font$color($author$project$Ui$colors.white),
-				A2($mdgriffith$elm_ui$Element$paddingXY, 24, 8)
-			]),
-		{
-			label: $mdgriffith$elm_ui$Element$text(label),
-			url: url
-		});
-};
-var $author$project$Ui$hero = function (options) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$centerX,
-				A2($mdgriffith$elm_ui$Element$paddingXY, 16, 128),
-				$mdgriffith$elm_ui$Element$spacing(24)
-			]),
-		A2(
-			$elm$core$List$cons,
-			A2(
-				$mdgriffith$elm_ui$Element$column,
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$spacing(12)
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$mdgriffith$elm_ui$Element$el,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$centerX,
-								$mdgriffith$elm_ui$Element$Font$size(64),
-								$mdgriffith$elm_ui$Element$Font$semiBold
-							]),
-						$mdgriffith$elm_ui$Element$text(options.title)),
-						A2(
-						$mdgriffith$elm_ui$Element$el,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$centerX,
-								$mdgriffith$elm_ui$Element$Font$size(24),
-								$mdgriffith$elm_ui$Element$alpha(0.5)
-							]),
-						$mdgriffith$elm_ui$Element$text(options.description))
-					])),
-			$elm$core$List$isEmpty(options.buttons) ? _List_Nil : A2($elm$core$List$map, $author$project$Ui$viewButton, options.buttons)));
-};
-var $author$project$Pages$Guide$view = $author$project$Ui$hero(
-	{buttons: _List_Nil, description: 'How to use elm-spa', title: 'Guide'});
-var $author$project$Pages$Guide$page = $ryannhg$elm_spa$Spa$Page$static(
-	{
-		title: $elm$core$Basics$always('Guide'),
-		view: $elm$core$Basics$always($author$project$Pages$Guide$view)
-	});
-var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
-	return {$: 'AlignY', a: a};
-};
-var $mdgriffith$elm_ui$Internal$Model$CenterY = {$: 'CenterY'};
-var $mdgriffith$elm_ui$Element$centerY = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$CenterY);
 var $mdgriffith$elm_ui$Internal$Model$Hover = {$: 'Hover'};
 var $mdgriffith$elm_ui$Internal$Model$PseudoSelector = F2(
 	function (a, b) {
 		return {$: 'PseudoSelector', a: a, b: b};
 	});
 var $mdgriffith$elm_ui$Internal$Flag$hover = $mdgriffith$elm_ui$Internal$Flag$flag(33);
+var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
+	return {$: 'AlignY', a: a};
+};
 var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
 	return {$: 'Describe', a: a};
 };
@@ -17065,6 +17031,147 @@ var $mdgriffith$elm_ui$Element$mouseOver = function (decs) {
 			$mdgriffith$elm_ui$Internal$Model$Hover,
 			$mdgriffith$elm_ui$Internal$Model$unwrapDecorations(decs)));
 };
+var $mdgriffith$elm_ui$Internal$Flag$borderRound = $mdgriffith$elm_ui$Internal$Flag$flag(17);
+var $mdgriffith$elm_ui$Element$Border$rounded = function (radius) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$borderRound,
+		A3(
+			$mdgriffith$elm_ui$Internal$Model$Single,
+			'br-' + $elm$core$String$fromInt(radius),
+			'border-radius',
+			$elm$core$String$fromInt(radius) + 'px'));
+};
+var $mdgriffith$elm_ui$Element$htmlAttribute = $mdgriffith$elm_ui$Internal$Model$Attr;
+var $author$project$Ui$transition = F2(
+	function (duration, properties) {
+		return $mdgriffith$elm_ui$Element$htmlAttribute(
+			A2(
+				$elm$html$Html$Attributes$style,
+				'transition',
+				A2(
+					$elm$core$String$join,
+					', ',
+					A2(
+						$elm$core$List$map,
+						function (prop) {
+							return prop + (' ' + ($elm$core$String$fromInt(duration) + 'color 200ms ease-in-out'));
+						},
+						properties))));
+	});
+var $mdgriffith$elm_ui$Internal$Model$BorderWidth = F5(
+	function (a, b, c, d, e) {
+		return {$: 'BorderWidth', a: a, b: b, c: c, d: d, e: e};
+	});
+var $mdgriffith$elm_ui$Element$Border$width = function (v) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$borderWidth,
+		A5(
+			$mdgriffith$elm_ui$Internal$Model$BorderWidth,
+			'b-' + $elm$core$String$fromInt(v),
+			v,
+			v,
+			v,
+			v));
+};
+var $author$project$Ui$viewButton = function (_v0) {
+	var label = _v0.a;
+	var url = _v0.b;
+	return A2(
+		$mdgriffith$elm_ui$Element$link,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$Background$color($author$project$Ui$colors.white),
+				$mdgriffith$elm_ui$Element$Border$color($author$project$Ui$colors.coral),
+				$mdgriffith$elm_ui$Element$Font$color($author$project$Ui$colors.coral),
+				A2($mdgriffith$elm_ui$Element$paddingXY, 24, 8),
+				$mdgriffith$elm_ui$Element$Border$rounded(4),
+				$mdgriffith$elm_ui$Element$Border$width(2),
+				$mdgriffith$elm_ui$Element$Font$size(14),
+				$mdgriffith$elm_ui$Element$mouseOver(
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Background$color($author$project$Ui$colors.coral),
+						$mdgriffith$elm_ui$Element$Font$color($author$project$Ui$colors.white)
+					])),
+				A2(
+				$author$project$Ui$transition,
+				200,
+				_List_fromArray(
+					['color', 'background-color']))
+			]),
+		{
+			label: $mdgriffith$elm_ui$Element$text(label),
+			url: url
+		});
+};
+var $author$project$Ui$hero = function (options) {
+	return A2(
+		$mdgriffith$elm_ui$Element$column,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$centerX,
+				A2($mdgriffith$elm_ui$Element$paddingXY, 16, 128),
+				$mdgriffith$elm_ui$Element$spacing(24)
+			]),
+		A2(
+			$elm$core$List$cons,
+			A2(
+				$mdgriffith$elm_ui$Element$column,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$spacing(12)
+					]),
+				_List_fromArray(
+					[
+						A2(
+						$mdgriffith$elm_ui$Element$el,
+						_List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$centerX,
+								$mdgriffith$elm_ui$Element$Font$size(64),
+								$mdgriffith$elm_ui$Element$Font$semiBold
+							]),
+						$mdgriffith$elm_ui$Element$text(options.title)),
+						A2(
+						$mdgriffith$elm_ui$Element$el,
+						_List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$centerX,
+								$mdgriffith$elm_ui$Element$Font$size(24),
+								$mdgriffith$elm_ui$Element$alpha(0.5)
+							]),
+						$mdgriffith$elm_ui$Element$text(options.description))
+					])),
+			$elm$core$List$isEmpty(options.buttons) ? _List_Nil : _List_fromArray(
+				[
+					A2(
+					$mdgriffith$elm_ui$Element$row,
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$centerX,
+							$mdgriffith$elm_ui$Element$spacing(8)
+						]),
+					A2($elm$core$List$map, $author$project$Ui$viewButton, options.buttons))
+				])));
+};
+var $author$project$Pages$Guide$view = $author$project$Ui$hero(
+	{
+		buttons: _List_fromArray(
+			[
+				_Utils_Tuple2('back to home', '/')
+			]),
+		description: 'How to use elm-spa',
+		title: 'Guide'
+	});
+var $author$project$Pages$Guide$page = $ryannhg$elm_spa$Spa$Page$static(
+	{
+		title: $elm$core$Basics$always('Guide'),
+		view: $elm$core$Basics$always($author$project$Pages$Guide$view)
+	});
+var $mdgriffith$elm_ui$Internal$Model$CenterY = {$: 'CenterY'};
+var $mdgriffith$elm_ui$Element$centerY = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$CenterY);
 var $author$project$Generated$Route$Docs = function (a) {
 	return {$: 'Docs', a: a};
 };
@@ -17443,26 +17550,6 @@ var $mdgriffith$elm_ui$Element$paddingEach = function (_v0) {
 			bottom,
 			left));
 };
-var $mdgriffith$elm_ui$Internal$Model$AsRow = {$: 'AsRow'};
-var $mdgriffith$elm_ui$Internal$Model$asRow = $mdgriffith$elm_ui$Internal$Model$AsRow;
-var $mdgriffith$elm_ui$Element$row = F2(
-	function (attrs, children) {
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asRow,
-			$mdgriffith$elm_ui$Internal$Model$div,
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentLeft + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.contentCenterY)),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
-					A2(
-						$elm$core$List$cons,
-						$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-						attrs))),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
-	});
 var $author$project$Layout$viewLink = F2(
 	function (currentRoute, _v0) {
 		var label = _v0.a;
@@ -17648,7 +17735,6 @@ var $author$project$Global$subscriptions = function (_v0) {
 var $ryannhg$elm_spa$Internals$Transition$Transition = function (a) {
 	return {$: 'Transition', a: a};
 };
-var $mdgriffith$elm_ui$Element$htmlAttribute = $mdgriffith$elm_ui$Internal$Model$Attr;
 var $ryannhg$elm_spa$Internals$Transition$fadeElmUi = function (duration_) {
 	var withOpacity = F2(
 		function (opacity, page) {

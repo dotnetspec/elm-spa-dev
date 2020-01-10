@@ -32,5 +32,5 @@ view =
     Ui.hero
         { title = "Guide"
         , description = "How to use elm-spa"
-        , buttons = []
+        , buttons = [ ( "back to home", "/" ) ]
         }
