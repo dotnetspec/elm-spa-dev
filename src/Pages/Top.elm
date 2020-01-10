@@ -31,21 +31,11 @@ view : Element Msg
 view =
     column
         [ centerX
-        , centerY
+        , paddingXY 16 128
         , spacing 24
         ]
-        [ column [ spacing 14 ]
+        [ column [ spacing 8 ]
             [ el [ centerX, Font.size 48, Font.semiBold ] (text "elm-spa")
-            , el [ alpha 0.5 ] (text "(you're doing great already!)")
+            , el [ alpha 0.5 ] (text "(Hi Phil)")
             ]
-        , newTabLink
-            [ Font.underline
-            , centerX
-            , Font.color (rgb255 204 75 75)
-            , mouseOver [ alpha 0.5 ]
-            , Font.size 16
-            ]
-            { label = text "learn more"
-            , url = "https://elm-spa.dev"
-            }
         ]
