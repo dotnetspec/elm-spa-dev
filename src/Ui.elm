@@ -30,7 +30,7 @@ hero options =
                     []
 
                 else
-                    []
+                    List.map viewButton options.buttons
                )
         )
 
