@@ -33,8 +33,8 @@ viewHeader currentRoute =
         , width (fill |> maximum 480)
         ]
         [ viewLink currentRoute ( "home", routes.top )
-        , viewLink currentRoute ( "Docs", routes.docs )
-        , viewLink currentRoute ( "Guide", routes.guide )
+        , el [ Font.size 16 ] (viewLink currentRoute ( "Docs", routes.docs ))
+        , el [ Font.size 16 ] (viewLink currentRoute ( "Guide", routes.guide ))
         ]
 
 
@@ -45,7 +45,6 @@ viewLink currentRoute ( label, route ) =
             [ Font.underline
             , Font.color (rgb255 204 75 75)
             , alpha 0.5
-            , Font.size 16
             ]
             (text label)
 
@@ -53,7 +52,6 @@ viewLink currentRoute ( label, route ) =
         link
             [ Font.underline
             , Font.color (rgb255 204 75 75)
-            , Font.size 16
             , mouseOver [ alpha 0.5 ]
             ]
             { label = text label

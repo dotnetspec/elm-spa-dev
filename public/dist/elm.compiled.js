@@ -17461,8 +17461,7 @@ var $author$project$Layout$viewLink = F2(
 					$mdgriffith$elm_ui$Element$Font$underline,
 					$mdgriffith$elm_ui$Element$Font$color(
 					A3($mdgriffith$elm_ui$Element$rgb255, 204, 75, 75)),
-					$mdgriffith$elm_ui$Element$alpha(0.5),
-					$mdgriffith$elm_ui$Element$Font$size(16)
+					$mdgriffith$elm_ui$Element$alpha(0.5)
 				]),
 			$mdgriffith$elm_ui$Element$text(label)) : A2(
 			$mdgriffith$elm_ui$Element$link,
@@ -17471,7 +17470,6 @@ var $author$project$Layout$viewLink = F2(
 					$mdgriffith$elm_ui$Element$Font$underline,
 					$mdgriffith$elm_ui$Element$Font$color(
 					A3($mdgriffith$elm_ui$Element$rgb255, 204, 75, 75)),
-					$mdgriffith$elm_ui$Element$Font$size(16),
 					$mdgriffith$elm_ui$Element$mouseOver(
 					_List_fromArray(
 						[
@@ -17502,13 +17500,25 @@ var $author$project$Layout$viewHeader = function (currentRoute) {
 				currentRoute,
 				_Utils_Tuple2('home', $author$project$Generated$Routes$routes.top)),
 				A2(
-				$author$project$Layout$viewLink,
-				currentRoute,
-				_Utils_Tuple2('Docs', $author$project$Generated$Routes$routes.docs)),
+				$mdgriffith$elm_ui$Element$el,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Font$size(16)
+					]),
 				A2(
-				$author$project$Layout$viewLink,
-				currentRoute,
-				_Utils_Tuple2('Guide', $author$project$Generated$Routes$routes.guide))
+					$author$project$Layout$viewLink,
+					currentRoute,
+					_Utils_Tuple2('Docs', $author$project$Generated$Routes$routes.docs))),
+				A2(
+				$mdgriffith$elm_ui$Element$el,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Font$size(16)
+					]),
+				A2(
+					$author$project$Layout$viewLink,
+					currentRoute,
+					_Utils_Tuple2('Guide', $author$project$Generated$Routes$routes.guide)))
 			]));
 };
 var $author$project$Layout$view = function (_v0) {
