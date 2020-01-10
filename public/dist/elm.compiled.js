@@ -17072,42 +17072,46 @@ var $mdgriffith$elm_ui$Element$paddingXY = F2(
 				y,
 				x));
 	});
-var $author$project$Pages$Top$view = A2(
-	$mdgriffith$elm_ui$Element$column,
-	_List_fromArray(
-		[
-			$mdgriffith$elm_ui$Element$centerX,
-			A2($mdgriffith$elm_ui$Element$paddingXY, 16, 128),
-			$mdgriffith$elm_ui$Element$spacing(24)
-		]),
-	_List_fromArray(
-		[
-			A2(
-			$mdgriffith$elm_ui$Element$column,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$spacing(8)
-				]),
-			_List_fromArray(
-				[
-					A2(
-					$mdgriffith$elm_ui$Element$el,
-					_List_fromArray(
-						[
-							$mdgriffith$elm_ui$Element$centerX,
-							$mdgriffith$elm_ui$Element$Font$size(48),
-							$mdgriffith$elm_ui$Element$Font$semiBold
-						]),
-					$mdgriffith$elm_ui$Element$text('elm-spa')),
-					A2(
-					$mdgriffith$elm_ui$Element$el,
-					_List_fromArray(
-						[
-							$mdgriffith$elm_ui$Element$alpha(0.5)
-						]),
-					$mdgriffith$elm_ui$Element$text('(Hi Phil)'))
-				]))
-		]));
+var $author$project$Pages$Top$hero = function (options) {
+	return A2(
+		$mdgriffith$elm_ui$Element$column,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$centerX,
+				A2($mdgriffith$elm_ui$Element$paddingXY, 16, 128),
+				$mdgriffith$elm_ui$Element$spacing(24)
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$mdgriffith$elm_ui$Element$column,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$spacing(8)
+					]),
+				_List_fromArray(
+					[
+						A2(
+						$mdgriffith$elm_ui$Element$el,
+						_List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$centerX,
+								$mdgriffith$elm_ui$Element$Font$size(48),
+								$mdgriffith$elm_ui$Element$Font$semiBold
+							]),
+						$mdgriffith$elm_ui$Element$text(options.title)),
+						A2(
+						$mdgriffith$elm_ui$Element$el,
+						_List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$alpha(0.5)
+							]),
+						$mdgriffith$elm_ui$Element$text(options.description))
+					]))
+			]));
+};
+var $author$project$Pages$Top$view = $author$project$Pages$Top$hero(
+	{description: 'Getting to grips with elm-spa', title: 'Phils Elm-Spa'});
 var $author$project$Pages$Top$page = $ryannhg$elm_spa$Spa$Page$static(
 	{
 		title: $elm$core$Basics$always('homepage'),

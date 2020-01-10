@@ -29,13 +29,18 @@ page =
 
 view : Element Msg
 view =
+    hero { title = "Phils Elm-Spa", description = "Getting to grips with elm-spa" }
+
+
+hero : { title : String, description : String } -> Element msg
+hero options =
     column
         [ centerX
         , paddingXY 16 128
         , spacing 24
         ]
         [ column [ spacing 8 ]
-            [ el [ centerX, Font.size 48, Font.semiBold ] (text "elm-spa")
-            , el [ alpha 0.5 ] (text "(Hi Phil)")
+            [ el [ centerX, Font.size 48, Font.semiBold ] (text options.title)
+            , el [ alpha 0.5 ] (text options.description)
             ]
         ]
