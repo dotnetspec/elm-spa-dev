@@ -3,6 +3,7 @@ module Layout exposing (view)
 import Element exposing (..)
 import Element.Font as Font
 import Generated.Routes as Routes exposing (Route, routes)
+import Ui exposing (colors)
 import Utils.Spa as Spa
 
 

@@ -4,6 +4,7 @@ import Element exposing (..)
 import Element.Font as Font
 import Generated.Params as Params
 import Spa.Page
+import Ui exposing (colors, hero)
 import Utils.Spa exposing (Page)
 
 
@@ -29,18 +30,4 @@ page =
 
 view : Element Msg
 view =
-    hero { title = "Phils Elm-Spa", description = "Getting to grips with elm-spa" }
-
-
-hero : { title : String, description : String } -> Element msg
-hero options =
-    column
-        [ centerX
-        , paddingXY 16 128
-        , spacing 24
-        ]
-        [ column [ spacing 8 ]
-            [ el [ centerX, Font.size 48, Font.semiBold ] (text options.title)
-            , el [ alpha 0.5 ] (text options.description)
-            ]
-        ]
+    Ui.hero { title = "Phils Elm-Spa", description = "Getting to grips with elm-spa", buttons = [ ( "learn more", "/guide" ) ] }

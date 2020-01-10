@@ -1,8 +1,9 @@
 module Pages.Guide exposing (Model, Msg, page)
 
-import Spa.Page
 import Element exposing (..)
 import Generated.Params as Params
+import Spa.Page
+import Ui
 import Utils.Spa exposing (Page)
 
 
@@ -28,4 +29,8 @@ page =
 
 view : Element Msg
 view =
-    text "Guide"
+    Ui.hero
+        { title = "Guide"
+        , description = "How to use elm-spa"
+        , buttons = []
+        }
