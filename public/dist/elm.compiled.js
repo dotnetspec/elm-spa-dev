@@ -11341,11 +11341,23 @@ var $author$project$Generated$Docs$Pages$DynamicModel = function (a) {
 var $author$project$Generated$Docs$Pages$DynamicMsg = function (a) {
 	return {$: 'DynamicMsg', a: a};
 };
+var $author$project$Generated$Docs$Pages$Dynamic_Folder_Model = function (a) {
+	return {$: 'Dynamic_Folder_Model', a: a};
+};
+var $author$project$Generated$Docs$Pages$Dynamic_Folder_Msg = function (a) {
+	return {$: 'Dynamic_Folder_Msg', a: a};
+};
 var $author$project$Generated$Docs$Pages$TopModel = function (a) {
 	return {$: 'TopModel', a: a};
 };
 var $author$project$Generated$Docs$Pages$TopMsg = function (a) {
 	return {$: 'TopMsg', a: a};
+};
+var $author$project$Generated$Docs$Dynamic$Pages$DynamicModel = function (a) {
+	return {$: 'DynamicModel', a: a};
+};
+var $author$project$Generated$Docs$Dynamic$Pages$DynamicMsg = function (a) {
+	return {$: 'DynamicMsg', a: a};
 };
 var $ryannhg$elm_spa$Internals$Page$Page = function (a) {
 	return {$: 'Page', a: a};
@@ -11403,17 +11415,18 @@ var $ryannhg$elm_spa$Spa$Page$element = function (page) {
 			};
 		});
 };
-var $author$project$Pages$Docs$Dynamic$init = function (_v0) {
+var $author$project$Pages$Docs$Dynamic$Dynamic$init = function (_v0) {
 	var param1 = _v0.param1;
+	var param2 = _v0.param2;
 	return _Utils_Tuple2(
-		{slug: param1},
+		{page: param2, section: param1},
 		$elm$core$Platform$Cmd$none);
 };
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Pages$Docs$Dynamic$subscriptions = function (model) {
+var $author$project$Pages$Docs$Dynamic$Dynamic$subscriptions = function (model) {
 	return $elm$core$Platform$Sub$none;
 };
-var $author$project$Pages$Docs$Dynamic$update = F2(
+var $author$project$Pages$Docs$Dynamic$Dynamic$update = F2(
 	function (msg, model) {
 		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 	});
@@ -11423,6 +11436,200 @@ var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
 var $mdgriffith$elm_ui$Element$text = function (content) {
 	return $mdgriffith$elm_ui$Internal$Model$Text(content);
 };
+var $author$project$Pages$Docs$Dynamic$Dynamic$view = function (model) {
+	return $mdgriffith$elm_ui$Element$text(model.section + (': ' + model.page));
+};
+var $author$project$Pages$Docs$Dynamic$Dynamic$page = $ryannhg$elm_spa$Spa$Page$element(
+	{
+		init: $elm$core$Basics$always($author$project$Pages$Docs$Dynamic$Dynamic$init),
+		subscriptions: $elm$core$Basics$always($author$project$Pages$Docs$Dynamic$Dynamic$subscriptions),
+		title: $elm$core$Basics$always('Docs.Dynamic.Dynamic'),
+		update: $elm$core$Basics$always($author$project$Pages$Docs$Dynamic$Dynamic$update),
+		view: $elm$core$Basics$always($author$project$Pages$Docs$Dynamic$Dynamic$view)
+	});
+var $mdgriffith$elm_ui$Internal$Model$Empty = {$: 'Empty'};
+var $mdgriffith$elm_ui$Internal$Model$Styled = function (a) {
+	return {$: 'Styled', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$Unstyled = function (a) {
+	return {$: 'Unstyled', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$map = F2(
+	function (fn, el) {
+		switch (el.$) {
+			case 'Styled':
+				var styled = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Styled(
+					{
+						html: F2(
+							function (add, context) {
+								return A2(
+									$elm$virtual_dom$VirtualDom$map,
+									fn,
+									A2(styled.html, add, context));
+							}),
+						styles: styled.styles
+					});
+			case 'Unstyled':
+				var html = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Unstyled(
+					A2(
+						$elm$core$Basics$composeL,
+						$elm$virtual_dom$VirtualDom$map(fn),
+						html));
+			case 'Text':
+				var str = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Text(str);
+			default:
+				return $mdgriffith$elm_ui$Internal$Model$Empty;
+		}
+	});
+var $mdgriffith$elm_ui$Element$map = $mdgriffith$elm_ui$Internal$Model$map;
+var $ryannhg$elm_spa$Spa$Page$recipe = $ryannhg$elm_spa$Internals$Page$upgrade;
+var $author$project$Utils$Spa$recipe = $ryannhg$elm_spa$Spa$Page$recipe($mdgriffith$elm_ui$Element$map);
+var $author$project$Generated$Docs$Dynamic$Pages$recipes = {
+	dynamic: $author$project$Utils$Spa$recipe(
+		{page: $author$project$Pages$Docs$Dynamic$Dynamic$page, toModel: $author$project$Generated$Docs$Dynamic$Pages$DynamicModel, toMsg: $author$project$Generated$Docs$Dynamic$Pages$DynamicMsg})
+};
+var $author$project$Generated$Docs$Dynamic$Pages$bundle = function (bigModel) {
+	var model = bigModel.a;
+	return $author$project$Generated$Docs$Dynamic$Pages$recipes.dynamic.bundle(model);
+};
+var $author$project$Generated$Docs$Dynamic$Pages$init = function (route_) {
+	var params = route_.b;
+	return $author$project$Generated$Docs$Dynamic$Pages$recipes.dynamic.init(params);
+};
+var $ryannhg$elm_spa$Spa$Page$truple = F3(
+	function (toModel, toMsg, _v0) {
+		var a = _v0.a;
+		var b = _v0.b;
+		var c = _v0.c;
+		return _Utils_Tuple3(
+			toModel(a),
+			A2($elm$core$Platform$Cmd$map, toMsg, b),
+			c);
+	});
+var $ryannhg$elm_spa$Spa$Page$layout = F2(
+	function (map, options) {
+		return $ryannhg$elm_spa$Internals$Page$Page(
+			function (_v0) {
+				var toModel = _v0.toModel;
+				var toMsg = _v0.toMsg;
+				return {
+					bundle: F3(
+						function (model, _private, context) {
+							var viewLayout = function (page) {
+								return options.view(
+									{fromGlobalMsg: _private.fromGlobalMsg, global: context.global, page: page, route: context.route});
+							};
+							var myLayoutsVisibility = _Utils_eq(_private.path, options.path) ? _private.visibility : $ryannhg$elm_spa$Internals$Transition$visible;
+							var lookupTransitionFrom = F2(
+								function (path, list) {
+									return A2(
+										$elm$core$Maybe$withDefault,
+										$ryannhg$elm_spa$Internals$Transition$optOut,
+										$elm$core$List$head(
+											A2(
+												$elm$core$List$map,
+												function ($) {
+													return $.transition;
+												},
+												A2(
+													$elm$core$List$filter,
+													A2(
+														$elm$core$Basics$composeR,
+														function ($) {
+															return $.path;
+														},
+														$elm$core$Basics$eq(path)),
+													list))));
+								});
+							var bundle = A3(
+								options.recipe.bundle,
+								model,
+								{
+									fromGlobalMsg: _private.fromGlobalMsg,
+									fromPageMsg: A2($elm$core$Basics$composeR, toMsg, _private.fromPageMsg),
+									map: map,
+									path: _private.path,
+									transitions: _private.transitions,
+									visibility: _private.visibility
+								},
+								context);
+							return {
+								subscriptions: bundle.subscriptions,
+								title: bundle.title,
+								view: viewLayout(
+									A3(
+										$ryannhg$elm_spa$Internals$Transition$view,
+										A2(lookupTransitionFrom, options.path, _private.transitions),
+										myLayoutsVisibility,
+										bundle.view))
+							};
+						}),
+					init: F2(
+						function (pageParams, global) {
+							return A3(
+								$ryannhg$elm_spa$Spa$Page$truple,
+								toModel,
+								toMsg,
+								A2(options.recipe.init, pageParams, global));
+						}),
+					update: F3(
+						function (msg, model, global) {
+							return A3(
+								$ryannhg$elm_spa$Spa$Page$truple,
+								toModel,
+								toMsg,
+								A3(options.recipe.update, msg, model, global));
+						})
+				};
+			});
+	});
+var $author$project$Utils$Spa$layout = $ryannhg$elm_spa$Spa$Page$layout($mdgriffith$elm_ui$Element$map);
+var $ryannhg$elm_spa$Internals$Path$Dynamic = {$: 'Dynamic'};
+var $ryannhg$elm_spa$Internals$Path$dynamic = $ryannhg$elm_spa$Internals$Path$Dynamic;
+var $ryannhg$elm_spa$Spa$Path$dynamic = $ryannhg$elm_spa$Internals$Path$dynamic;
+var $ryannhg$elm_spa$Internals$Path$Static = function (a) {
+	return {$: 'Static', a: a};
+};
+var $ryannhg$elm_spa$Internals$Path$static = $ryannhg$elm_spa$Internals$Path$Static;
+var $ryannhg$elm_spa$Spa$Path$static = $ryannhg$elm_spa$Internals$Path$static;
+var $author$project$Generated$Docs$Dynamic$Pages$path = _List_fromArray(
+	[
+		$ryannhg$elm_spa$Spa$Path$static('docs'),
+		$ryannhg$elm_spa$Spa$Path$dynamic
+	]);
+var $author$project$Generated$Docs$Dynamic$Pages$update = F2(
+	function (bigMsg, bigModel) {
+		var _v0 = _Utils_Tuple2(bigMsg, bigModel);
+		var msg = _v0.a.a;
+		var model = _v0.b.a;
+		return A2($author$project$Generated$Docs$Dynamic$Pages$recipes.dynamic.update, msg, model);
+	});
+var $author$project$Layouts$Docs$Dynamic$view = function (_v0) {
+	var page = _v0.page;
+	return page;
+};
+var $author$project$Generated$Docs$Dynamic$Pages$page = $author$project$Utils$Spa$layout(
+	{
+		path: $author$project$Generated$Docs$Dynamic$Pages$path,
+		recipe: {bundle: $author$project$Generated$Docs$Dynamic$Pages$bundle, init: $author$project$Generated$Docs$Dynamic$Pages$init, update: $author$project$Generated$Docs$Dynamic$Pages$update},
+		view: $author$project$Layouts$Docs$Dynamic$view
+	});
+var $author$project$Pages$Docs$Dynamic$init = function (_v0) {
+	var param1 = _v0.param1;
+	return _Utils_Tuple2(
+		{slug: param1},
+		$elm$core$Platform$Cmd$none);
+};
+var $author$project$Pages$Docs$Dynamic$subscriptions = function (model) {
+	return $elm$core$Platform$Sub$none;
+};
+var $author$project$Pages$Docs$Dynamic$update = F2(
+	function (msg, model) {
+		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+	});
 var $author$project$Pages$Docs$Dynamic$view = function (model) {
 	return $mdgriffith$elm_ui$Element$text(model.slug);
 };
@@ -11473,6 +11680,93 @@ var $ryannhg$elm_spa$Spa$Page$static = function (page) {
 			};
 		});
 };
+var $author$project$Pages$Docs$Top$view = $mdgriffith$elm_ui$Element$text('docs');
+var $author$project$Pages$Docs$Top$page = $ryannhg$elm_spa$Spa$Page$static(
+	{
+		title: $elm$core$Basics$always('Docs.Top'),
+		view: $elm$core$Basics$always($author$project$Pages$Docs$Top$view)
+	});
+var $author$project$Generated$Docs$Pages$recipes = {
+	dynamic: $author$project$Utils$Spa$recipe(
+		{page: $author$project$Pages$Docs$Dynamic$page, toModel: $author$project$Generated$Docs$Pages$DynamicModel, toMsg: $author$project$Generated$Docs$Pages$DynamicMsg}),
+	dynamic_folder: $author$project$Utils$Spa$recipe(
+		{page: $author$project$Generated$Docs$Dynamic$Pages$page, toModel: $author$project$Generated$Docs$Pages$Dynamic_Folder_Model, toMsg: $author$project$Generated$Docs$Pages$Dynamic_Folder_Msg}),
+	top: $author$project$Utils$Spa$recipe(
+		{page: $author$project$Pages$Docs$Top$page, toModel: $author$project$Generated$Docs$Pages$TopModel, toMsg: $author$project$Generated$Docs$Pages$TopMsg})
+};
+var $author$project$Generated$Docs$Pages$bundle = function (bigModel) {
+	switch (bigModel.$) {
+		case 'TopModel':
+			var model = bigModel.a;
+			return $author$project$Generated$Docs$Pages$recipes.top.bundle(model);
+		case 'DynamicModel':
+			var model = bigModel.a;
+			return $author$project$Generated$Docs$Pages$recipes.dynamic.bundle(model);
+		default:
+			var model = bigModel.a;
+			return $author$project$Generated$Docs$Pages$recipes.dynamic_folder.bundle(model);
+	}
+};
+var $author$project$Generated$Docs$Pages$init = function (route_) {
+	switch (route_.$) {
+		case 'Top':
+			var params = route_.a;
+			return $author$project$Generated$Docs$Pages$recipes.top.init(params);
+		case 'Dynamic':
+			var params = route_.b;
+			return $author$project$Generated$Docs$Pages$recipes.dynamic.init(params);
+		default:
+			var route = route_.b;
+			return $author$project$Generated$Docs$Pages$recipes.dynamic_folder.init(route);
+	}
+};
+var $author$project$Generated$Docs$Pages$path = _List_fromArray(
+	[
+		$ryannhg$elm_spa$Spa$Path$static('docs')
+	]);
+var $ryannhg$elm_spa$Spa$Page$keep = function (model) {
+	return $elm$core$Basics$always(
+		_Utils_Tuple3(model, $elm$core$Platform$Cmd$none, $elm$core$Platform$Cmd$none));
+};
+var $author$project$Generated$Docs$Pages$update = F2(
+	function (bigMsg, bigModel) {
+		var _v0 = _Utils_Tuple2(bigMsg, bigModel);
+		_v0$3:
+		while (true) {
+			switch (_v0.a.$) {
+				case 'TopMsg':
+					if (_v0.b.$ === 'TopModel') {
+						var msg = _v0.a.a;
+						var model = _v0.b.a;
+						return A2($author$project$Generated$Docs$Pages$recipes.top.update, msg, model);
+					} else {
+						break _v0$3;
+					}
+				case 'DynamicMsg':
+					if (_v0.b.$ === 'DynamicModel') {
+						var msg = _v0.a.a;
+						var model = _v0.b.a;
+						return A2($author$project$Generated$Docs$Pages$recipes.dynamic.update, msg, model);
+					} else {
+						break _v0$3;
+					}
+				default:
+					if (_v0.b.$ === 'Dynamic_Folder_Model') {
+						var msg = _v0.a.a;
+						var model = _v0.b.a;
+						return A2($author$project$Generated$Docs$Pages$recipes.dynamic_folder.update, msg, model);
+					} else {
+						break _v0$3;
+					}
+			}
+		}
+		return $ryannhg$elm_spa$Spa$Page$keep(bigModel);
+	});
+var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
+	return {$: 'AlignY', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$Top = {$: 'Top'};
+var $mdgriffith$elm_ui$Element$alignTop = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$Top);
 var $mdgriffith$elm_ui$Internal$Model$AlignX = function (a) {
 	return {$: 'AlignX', a: a};
 };
@@ -11513,12 +11807,6 @@ var $mdgriffith$elm_ui$Internal$Model$Keyed = function (a) {
 	return {$: 'Keyed', a: a};
 };
 var $mdgriffith$elm_ui$Internal$Model$NoStyleSheet = {$: 'NoStyleSheet'};
-var $mdgriffith$elm_ui$Internal$Model$Styled = function (a) {
-	return {$: 'Styled', a: a};
-};
-var $mdgriffith$elm_ui$Internal$Model$Unstyled = function (a) {
-	return {$: 'Unstyled', a: a};
-};
 var $mdgriffith$elm_ui$Internal$Model$addChildren = F2(
 	function (existing, nearbyChildren) {
 		switch (nearbyChildren.$) {
@@ -16830,7 +17118,6 @@ var $mdgriffith$elm_ui$Element$row = F2(
 						attrs))),
 			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
 	});
-var $author$project$Pages$Docs$Top$viewMainContent = $mdgriffith$elm_ui$Element$text('MainContent here');
 var $mdgriffith$elm_ui$Internal$Model$AsColumn = {$: 'AsColumn'};
 var $mdgriffith$elm_ui$Internal$Model$asColumn = $mdgriffith$elm_ui$Internal$Model$AsColumn;
 var $mdgriffith$elm_ui$Element$column = F2(
@@ -16885,40 +17172,6 @@ var $mdgriffith$elm_ui$Element$spacing = function (x) {
 			A2($mdgriffith$elm_ui$Internal$Model$spacingName, x, x),
 			x,
 			x));
-};
-var $mdgriffith$elm_ui$Internal$Model$Colored = F3(
-	function (a, b, c) {
-		return {$: 'Colored', a: a, b: b, c: c};
-	});
-var $mdgriffith$elm_ui$Internal$Flag$fontColor = $mdgriffith$elm_ui$Internal$Flag$flag(14);
-var $mdgriffith$elm_ui$Internal$Model$formatColorClass = function (_v0) {
-	var red = _v0.a;
-	var green = _v0.b;
-	var blue = _v0.c;
-	var alpha = _v0.d;
-	return $mdgriffith$elm_ui$Internal$Model$floatClass(red) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(green) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(blue) + ('-' + $mdgriffith$elm_ui$Internal$Model$floatClass(alpha))))));
-};
-var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$fontColor,
-		A3(
-			$mdgriffith$elm_ui$Internal$Model$Colored,
-			'fc-' + $mdgriffith$elm_ui$Internal$Model$formatColorClass(fontColor),
-			'color',
-			fontColor));
-};
-var $mdgriffith$elm_ui$Internal$Model$Rgba = F4(
-	function (a, b, c, d) {
-		return {$: 'Rgba', a: a, b: b, c: c, d: d};
-	});
-var $mdgriffith$elm_ui$Element$rgb255 = F3(
-	function (red, green, blue) {
-		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, red / 255, green / 255, blue / 255, 1);
-	});
-var $author$project$Ui$colors = {
-	coral: A3($mdgriffith$elm_ui$Element$rgb255, 204, 75, 75),
-	white: A3($mdgriffith$elm_ui$Element$rgb255, 255, 255, 255)
 };
 var $mdgriffith$elm_ui$Internal$Model$Transparency = F2(
 	function (a, b) {
@@ -16978,9 +17231,6 @@ var $mdgriffith$elm_ui$Internal$Model$PseudoSelector = F2(
 		return {$: 'PseudoSelector', a: a, b: b};
 	});
 var $mdgriffith$elm_ui$Internal$Flag$hover = $mdgriffith$elm_ui$Internal$Flag$flag(33);
-var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
-	return {$: 'AlignY', a: a};
-};
 var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
 	return {$: 'Describe', a: a};
 };
@@ -16992,37 +17242,6 @@ var $mdgriffith$elm_ui$Internal$Model$NoAttribute = {$: 'NoAttribute'};
 var $mdgriffith$elm_ui$Internal$Model$TransformComponent = F2(
 	function (a, b) {
 		return {$: 'TransformComponent', a: a, b: b};
-	});
-var $mdgriffith$elm_ui$Internal$Model$Empty = {$: 'Empty'};
-var $mdgriffith$elm_ui$Internal$Model$map = F2(
-	function (fn, el) {
-		switch (el.$) {
-			case 'Styled':
-				var styled = el.a;
-				return $mdgriffith$elm_ui$Internal$Model$Styled(
-					{
-						html: F2(
-							function (add, context) {
-								return A2(
-									$elm$virtual_dom$VirtualDom$map,
-									fn,
-									A2(styled.html, add, context));
-							}),
-						styles: styled.styles
-					});
-			case 'Unstyled':
-				var html = el.a;
-				return $mdgriffith$elm_ui$Internal$Model$Unstyled(
-					A2(
-						$elm$core$Basics$composeL,
-						$elm$virtual_dom$VirtualDom$map(fn),
-						html));
-			case 'Text':
-				var str = el.a;
-				return $mdgriffith$elm_ui$Internal$Model$Text(str);
-			default:
-				return $mdgriffith$elm_ui$Internal$Model$Empty;
-		}
 	});
 var $elm$virtual_dom$VirtualDom$mapAttribute = _VirtualDom_mapAttribute;
 var $mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle = F2(
@@ -17117,7 +17336,7 @@ var $mdgriffith$elm_ui$Element$mouseOver = function (decs) {
 			$mdgriffith$elm_ui$Internal$Model$unwrapDecorations(decs)));
 };
 var $mdgriffith$elm_ui$Element$Font$underline = $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.underline);
-var $author$project$Pages$Docs$Top$viewLink = function (_v0) {
+var $author$project$Layouts$Docs$viewLink = function (_v0) {
 	var label = _v0.a;
 	var url = _v0.b;
 	return A2(
@@ -17137,7 +17356,41 @@ var $author$project$Pages$Docs$Top$viewLink = function (_v0) {
 			url: url
 		});
 };
-var $author$project$Pages$Docs$Top$viewLinks = function (links) {
+var $mdgriffith$elm_ui$Internal$Model$Colored = F3(
+	function (a, b, c) {
+		return {$: 'Colored', a: a, b: b, c: c};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$fontColor = $mdgriffith$elm_ui$Internal$Flag$flag(14);
+var $mdgriffith$elm_ui$Internal$Model$formatColorClass = function (_v0) {
+	var red = _v0.a;
+	var green = _v0.b;
+	var blue = _v0.c;
+	var alpha = _v0.d;
+	return $mdgriffith$elm_ui$Internal$Model$floatClass(red) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(green) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(blue) + ('-' + $mdgriffith$elm_ui$Internal$Model$floatClass(alpha))))));
+};
+var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$fontColor,
+		A3(
+			$mdgriffith$elm_ui$Internal$Model$Colored,
+			'fc-' + $mdgriffith$elm_ui$Internal$Model$formatColorClass(fontColor),
+			'color',
+			fontColor));
+};
+var $mdgriffith$elm_ui$Internal$Model$Rgba = F4(
+	function (a, b, c, d) {
+		return {$: 'Rgba', a: a, b: b, c: c, d: d};
+	});
+var $mdgriffith$elm_ui$Element$rgb255 = F3(
+	function (red, green, blue) {
+		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, red / 255, green / 255, blue / 255, 1);
+	});
+var $author$project$Ui$colors = {
+	coral: A3($mdgriffith$elm_ui$Element$rgb255, 204, 75, 75),
+	white: A3($mdgriffith$elm_ui$Element$rgb255, 255, 255, 255)
+};
+var $author$project$Layouts$Docs$viewLinks = function (links) {
 	return A2(
 		$mdgriffith$elm_ui$Element$column,
 		_List_fromArray(
@@ -17145,9 +17398,9 @@ var $author$project$Pages$Docs$Top$viewLinks = function (links) {
 				$mdgriffith$elm_ui$Element$spacing(12),
 				$mdgriffith$elm_ui$Element$Font$color($author$project$Ui$colors.coral)
 			]),
-		A2($elm$core$List$map, $author$project$Pages$Docs$Top$viewLink, links));
+		A2($elm$core$List$map, $author$project$Layouts$Docs$viewLink, links));
 };
-var $author$project$Pages$Docs$Top$viewSectionHeader = function (label) {
+var $author$project$Layouts$Docs$viewSectionHeader = function (label) {
 	return A2(
 		$mdgriffith$elm_ui$Element$el,
 		_List_fromArray(
@@ -17158,7 +17411,7 @@ var $author$project$Pages$Docs$Top$viewSectionHeader = function (label) {
 			]),
 		$mdgriffith$elm_ui$Element$text(label));
 };
-var $author$project$Pages$Docs$Top$viewSidebar = A2(
+var $author$project$Layouts$Docs$viewSidebar = A2(
 	$mdgriffith$elm_ui$Element$column,
 	_List_fromArray(
 		[
@@ -17174,6 +17427,8 @@ var $author$project$Pages$Docs$Top$viewSidebar = A2(
 					$mdgriffith$elm_ui$Element$Font$size(24)
 				]),
 			$mdgriffith$elm_ui$Element$text('docs')),
+			$author$project$Layouts$Docs$viewLink(
+			_Utils_Tuple2('Overview', '/docs')),
 			A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -17182,8 +17437,8 @@ var $author$project$Pages$Docs$Top$viewSidebar = A2(
 				]),
 			_List_fromArray(
 				[
-					$author$project$Pages$Docs$Top$viewSectionHeader('elm-spa'),
-					$author$project$Pages$Docs$Top$viewLinks(
+					$author$project$Layouts$Docs$viewSectionHeader('elm-spa'),
+					$author$project$Layouts$Docs$viewLinks(
 					_List_fromArray(
 						[
 							_Utils_Tuple2('elm-spa', '/docs/elm-spa'),
@@ -17191,201 +17446,46 @@ var $author$project$Pages$Docs$Top$viewSidebar = A2(
 							_Utils_Tuple2('elm-spa add', '/docs/elm-spa/add'),
 							_Utils_Tuple2('elm-spa build', '/docs/elm-spa/build')
 						])),
-					$author$project$Pages$Docs$Top$viewSectionHeader('pages'),
-					$author$project$Pages$Docs$Top$viewLinks(
+					$author$project$Layouts$Docs$viewSectionHeader('pages'),
+					$author$project$Layouts$Docs$viewLinks(
 					_List_fromArray(
 						[
-							_Utils_Tuple2('overview', '/docs/pages'),
-							_Utils_Tuple2('static', '/docs/pages/static'),
-							_Utils_Tuple2('sandbox', '/docs/pages/elm-spa/sandbox'),
-							_Utils_Tuple2('element', '/docs/pages/elm-spa/element'),
-							_Utils_Tuple2('component', '/docs/pages/elm-spa/component')
+							_Utils_Tuple2('overview', '/docs'),
+							_Utils_Tuple2('static', '/docs/static'),
+							_Utils_Tuple2('sandbox', '/docs/elm-spa/sandbox'),
+							_Utils_Tuple2('element', '/docs/elm-spa/element'),
+							_Utils_Tuple2('component', '/docs/elm-spa/component')
 						]))
 				]))
 		]));
-var $author$project$Pages$Docs$Top$view = A2(
-	$mdgriffith$elm_ui$Element$row,
-	_List_fromArray(
-		[
-			$mdgriffith$elm_ui$Element$width(
-			A2($mdgriffith$elm_ui$Element$maximum, 720, $mdgriffith$elm_ui$Element$fill)),
-			$mdgriffith$elm_ui$Element$centerX,
-			$mdgriffith$elm_ui$Element$paddingEach(
-			{bottom: 128, left: 16, right: 16, top: 32})
-		]),
-	_List_fromArray(
-		[
-			A2(
-			$mdgriffith$elm_ui$Element$el,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$width(
-					$mdgriffith$elm_ui$Element$px(200))
-				]),
-			$author$project$Pages$Docs$Top$viewSidebar),
-			$author$project$Pages$Docs$Top$viewMainContent
-		]));
-var $author$project$Pages$Docs$Top$page = $ryannhg$elm_spa$Spa$Page$static(
-	{
-		title: $elm$core$Basics$always('Docs.Top'),
-		view: $elm$core$Basics$always($author$project$Pages$Docs$Top$view)
-	});
-var $mdgriffith$elm_ui$Element$map = $mdgriffith$elm_ui$Internal$Model$map;
-var $ryannhg$elm_spa$Spa$Page$recipe = $ryannhg$elm_spa$Internals$Page$upgrade;
-var $author$project$Utils$Spa$recipe = $ryannhg$elm_spa$Spa$Page$recipe($mdgriffith$elm_ui$Element$map);
-var $author$project$Generated$Docs$Pages$recipes = {
-	dynamic: $author$project$Utils$Spa$recipe(
-		{page: $author$project$Pages$Docs$Dynamic$page, toModel: $author$project$Generated$Docs$Pages$DynamicModel, toMsg: $author$project$Generated$Docs$Pages$DynamicMsg}),
-	top: $author$project$Utils$Spa$recipe(
-		{page: $author$project$Pages$Docs$Top$page, toModel: $author$project$Generated$Docs$Pages$TopModel, toMsg: $author$project$Generated$Docs$Pages$TopMsg})
-};
-var $author$project$Generated$Docs$Pages$bundle = function (bigModel) {
-	if (bigModel.$ === 'TopModel') {
-		var model = bigModel.a;
-		return $author$project$Generated$Docs$Pages$recipes.top.bundle(model);
-	} else {
-		var model = bigModel.a;
-		return $author$project$Generated$Docs$Pages$recipes.dynamic.bundle(model);
-	}
-};
-var $author$project$Generated$Docs$Pages$init = function (route_) {
-	if (route_.$ === 'Top') {
-		var params = route_.a;
-		return $author$project$Generated$Docs$Pages$recipes.top.init(params);
-	} else {
-		var params = route_.b;
-		return $author$project$Generated$Docs$Pages$recipes.dynamic.init(params);
-	}
-};
-var $ryannhg$elm_spa$Spa$Page$truple = F3(
-	function (toModel, toMsg, _v0) {
-		var a = _v0.a;
-		var b = _v0.b;
-		var c = _v0.c;
-		return _Utils_Tuple3(
-			toModel(a),
-			A2($elm$core$Platform$Cmd$map, toMsg, b),
-			c);
-	});
-var $ryannhg$elm_spa$Spa$Page$layout = F2(
-	function (map, options) {
-		return $ryannhg$elm_spa$Internals$Page$Page(
-			function (_v0) {
-				var toModel = _v0.toModel;
-				var toMsg = _v0.toMsg;
-				return {
-					bundle: F3(
-						function (model, _private, context) {
-							var viewLayout = function (page) {
-								return options.view(
-									{fromGlobalMsg: _private.fromGlobalMsg, global: context.global, page: page, route: context.route});
-							};
-							var myLayoutsVisibility = _Utils_eq(_private.path, options.path) ? _private.visibility : $ryannhg$elm_spa$Internals$Transition$visible;
-							var lookupTransitionFrom = F2(
-								function (path, list) {
-									return A2(
-										$elm$core$Maybe$withDefault,
-										$ryannhg$elm_spa$Internals$Transition$optOut,
-										$elm$core$List$head(
-											A2(
-												$elm$core$List$map,
-												function ($) {
-													return $.transition;
-												},
-												A2(
-													$elm$core$List$filter,
-													A2(
-														$elm$core$Basics$composeR,
-														function ($) {
-															return $.path;
-														},
-														$elm$core$Basics$eq(path)),
-													list))));
-								});
-							var bundle = A3(
-								options.recipe.bundle,
-								model,
-								{
-									fromGlobalMsg: _private.fromGlobalMsg,
-									fromPageMsg: A2($elm$core$Basics$composeR, toMsg, _private.fromPageMsg),
-									map: map,
-									path: _private.path,
-									transitions: _private.transitions,
-									visibility: _private.visibility
-								},
-								context);
-							return {
-								subscriptions: bundle.subscriptions,
-								title: bundle.title,
-								view: viewLayout(
-									A3(
-										$ryannhg$elm_spa$Internals$Transition$view,
-										A2(lookupTransitionFrom, options.path, _private.transitions),
-										myLayoutsVisibility,
-										bundle.view))
-							};
-						}),
-					init: F2(
-						function (pageParams, global) {
-							return A3(
-								$ryannhg$elm_spa$Spa$Page$truple,
-								toModel,
-								toMsg,
-								A2(options.recipe.init, pageParams, global));
-						}),
-					update: F3(
-						function (msg, model, global) {
-							return A3(
-								$ryannhg$elm_spa$Spa$Page$truple,
-								toModel,
-								toMsg,
-								A3(options.recipe.update, msg, model, global));
-						})
-				};
-			});
-	});
-var $author$project$Utils$Spa$layout = $ryannhg$elm_spa$Spa$Page$layout($mdgriffith$elm_ui$Element$map);
-var $ryannhg$elm_spa$Internals$Path$Static = function (a) {
-	return {$: 'Static', a: a};
-};
-var $ryannhg$elm_spa$Internals$Path$static = $ryannhg$elm_spa$Internals$Path$Static;
-var $ryannhg$elm_spa$Spa$Path$static = $ryannhg$elm_spa$Internals$Path$static;
-var $author$project$Generated$Docs$Pages$path = _List_fromArray(
-	[
-		$ryannhg$elm_spa$Spa$Path$static('docs')
-	]);
-var $ryannhg$elm_spa$Spa$Page$keep = function (model) {
-	return $elm$core$Basics$always(
-		_Utils_Tuple3(model, $elm$core$Platform$Cmd$none, $elm$core$Platform$Cmd$none));
-};
-var $author$project$Generated$Docs$Pages$update = F2(
-	function (bigMsg, bigModel) {
-		var _v0 = _Utils_Tuple2(bigMsg, bigModel);
-		_v0$2:
-		while (true) {
-			if (_v0.a.$ === 'TopMsg') {
-				if (_v0.b.$ === 'TopModel') {
-					var msg = _v0.a.a;
-					var model = _v0.b.a;
-					return A2($author$project$Generated$Docs$Pages$recipes.top.update, msg, model);
-				} else {
-					break _v0$2;
-				}
-			} else {
-				if (_v0.b.$ === 'DynamicModel') {
-					var msg = _v0.a.a;
-					var model = _v0.b.a;
-					return A2($author$project$Generated$Docs$Pages$recipes.dynamic.update, msg, model);
-				} else {
-					break _v0$2;
-				}
-			}
-		}
-		return $ryannhg$elm_spa$Spa$Page$keep(bigModel);
-	});
 var $author$project$Layouts$Docs$view = function (_v0) {
 	var page = _v0.page;
-	return page;
+	return A2(
+		$mdgriffith$elm_ui$Element$row,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$width(
+				A2($mdgriffith$elm_ui$Element$maximum, 720, $mdgriffith$elm_ui$Element$fill)),
+				$mdgriffith$elm_ui$Element$centerX,
+				$mdgriffith$elm_ui$Element$paddingEach(
+				{bottom: 128, left: 16, right: 16, top: 32})
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$mdgriffith$elm_ui$Element$el,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$width(
+						$mdgriffith$elm_ui$Element$px(200))
+					]),
+				$author$project$Layouts$Docs$viewSidebar),
+				A2(
+				$mdgriffith$elm_ui$Element$el,
+				_List_fromArray(
+					[$mdgriffith$elm_ui$Element$alignTop]),
+				page)
+			]));
 };
 var $author$project$Generated$Docs$Pages$page = $author$project$Utils$Spa$layout(
 	{
@@ -17581,9 +17681,17 @@ var $mdgriffith$elm_ui$Element$centerY = $mdgriffith$elm_ui$Internal$Model$Align
 var $author$project$Generated$Route$Docs_Folder = function (a) {
 	return {$: 'Docs_Folder', a: a};
 };
+var $author$project$Generated$Docs$Dynamic$Route$Dynamic = F2(
+	function (a, b) {
+		return {$: 'Dynamic', a: a, b: b};
+	});
 var $author$project$Generated$Docs$Route$Dynamic = F2(
 	function (a, b) {
 		return {$: 'Dynamic', a: a, b: b};
+	});
+var $author$project$Generated$Docs$Route$Dynamic_Folder = F2(
+	function (a, b) {
+		return {$: 'Dynamic_Folder', a: a, b: b};
 	});
 var $author$project$Generated$Route$Guide = function (a) {
 	return {$: 'Guide', a: a};
@@ -17605,6 +17713,17 @@ var $author$project$Generated$Routes$routes = {
 				param1,
 				{param1: param1}));
 	},
+	docs_dynamic_dynamic: F2(
+		function (param1, param2) {
+			return $author$project$Generated$Route$Docs_Folder(
+				A2(
+					$author$project$Generated$Docs$Route$Dynamic_Folder,
+					param1,
+					A2(
+						$author$project$Generated$Docs$Dynamic$Route$Dynamic,
+						param2,
+						{param1: param1, param2: param2})));
+		}),
 	docs_top: $author$project$Generated$Route$Docs_Folder(
 		$author$project$Generated$Docs$Route$Top(
 			{})),
@@ -17615,12 +17734,21 @@ var $author$project$Generated$Routes$routes = {
 	top: $author$project$Generated$Route$Top(
 		{})
 };
+var $author$project$Generated$Docs$Dynamic$Route$toPath = function (route) {
+	var value = route.a;
+	return '/' + value;
+};
 var $author$project$Generated$Docs$Route$toPath = function (route) {
-	if (route.$ === 'Top') {
-		return '/';
-	} else {
-		var value = route.a;
-		return '/' + value;
+	switch (route.$) {
+		case 'Top':
+			return '/';
+		case 'Dynamic':
+			var value = route.a;
+			return '/' + value;
+		default:
+			var value = route.a;
+			var subRoute = route.b;
+			return '/' + (value + $author$project$Generated$Docs$Dynamic$Route$toPath(subRoute));
 	}
 };
 var $author$project$Generated$Route$toPath = function (route) {
@@ -18076,7 +18204,14 @@ var $author$project$Generated$Routes$parsers = _List_fromArray(
 		A2(
 			$elm$url$Url$Parser$slash,
 			$elm$url$Url$Parser$s('docs'),
-			$elm$url$Url$Parser$string))
+			$elm$url$Url$Parser$string)),
+		A2(
+		$elm$url$Url$Parser$map,
+		$author$project$Generated$Routes$routes.docs_dynamic_dynamic,
+		A2(
+			$elm$url$Url$Parser$slash,
+			$elm$url$Url$Parser$s('docs'),
+			A2($elm$url$Url$Parser$slash, $elm$url$Url$Parser$string, $elm$url$Url$Parser$string)))
 	]);
 var $author$project$Global$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
@@ -18119,7 +18254,13 @@ var $ryannhg$elm_spa$Spa$Transition$fadeElmUi = $ryannhg$elm_spa$Internals$Trans
 var $author$project$Transitions$transitions = {
 	layout: $ryannhg$elm_spa$Spa$Transition$fadeElmUi(500),
 	page: $ryannhg$elm_spa$Spa$Transition$fadeElmUi(300),
-	pages: _List_Nil
+	pages: _List_fromArray(
+		[
+			{
+			path: $author$project$Generated$Docs$Pages$path,
+			transition: $ryannhg$elm_spa$Spa$Transition$fadeElmUi(300)
+		}
+		])
 };
 var $author$project$Global$update = F3(
 	function (_v0, _v1, model) {
@@ -18345,4 +18486,4 @@ var $author$project$Main$main = $ryannhg$elm_spa$Spa$create(
 		ui: $ryannhg$elm_spa$Spa$usingElmUi
 	});
 _Platform_export({'Main':{'init':$author$project$Main$main(
-	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Spa.Msg Global.Msg Generated.Pages.Msg","aliases":{"Pages.Guide.Msg":{"args":[],"type":"Basics.Never"},"Pages.NotFound.Msg":{"args":[],"type":"Basics.Never"},"Pages.Top.Msg":{"args":[],"type":"Basics.Never"},"Url.Url":{"args":[],"type":"{ protocol : Url.Protocol, host : String.String, port_ : Maybe.Maybe Basics.Int, path : String.String, query : Maybe.Maybe String.String, fragment : Maybe.Maybe String.String }"},"Pages.Docs.Top.Msg":{"args":[],"type":"Basics.Never"}},"unions":{"Generated.Pages.Msg":{"args":[],"tags":{"GuideMsg":["Pages.Guide.Msg"],"NotFoundMsg":["Pages.NotFound.Msg"],"TopMsg":["Pages.Top.Msg"],"Docs_Folder_Msg":["Generated.Docs.Pages.Msg"]}},"Global.Msg":{"args":[],"tags":{"Msg":[]}},"Spa.Msg":{"args":["globalMsg","msg"],"tags":{"ChangedUrl":["Url.Url"],"ClickedLink":["Browser.UrlRequest"],"Global":["globalMsg"],"Page":["msg"],"FadeInLayout":[],"FadeInPage":["Url.Url"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Maybe.Maybe":{"args":["a"],"tags":{"Just":["a"],"Nothing":[]}},"Generated.Docs.Pages.Msg":{"args":[],"tags":{"DynamicMsg":["Pages.Docs.Dynamic.Msg"],"TopMsg":["Pages.Docs.Top.Msg"]}},"Basics.Never":{"args":[],"tags":{"JustOneMore":["Basics.Never"]}},"Url.Protocol":{"args":[],"tags":{"Http":[],"Https":[]}},"String.String":{"args":[],"tags":{"String":[]}},"Browser.UrlRequest":{"args":[],"tags":{"Internal":["Url.Url"],"External":["String.String"]}},"Pages.Docs.Dynamic.Msg":{"args":[],"tags":{"Msg":[]}}}}})}});}(this));
+	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Spa.Msg Global.Msg Generated.Pages.Msg","aliases":{"Pages.Guide.Msg":{"args":[],"type":"Basics.Never"},"Pages.NotFound.Msg":{"args":[],"type":"Basics.Never"},"Pages.Top.Msg":{"args":[],"type":"Basics.Never"},"Url.Url":{"args":[],"type":"{ protocol : Url.Protocol, host : String.String, port_ : Maybe.Maybe Basics.Int, path : String.String, query : Maybe.Maybe String.String, fragment : Maybe.Maybe String.String }"},"Pages.Docs.Top.Msg":{"args":[],"type":"Basics.Never"}},"unions":{"Generated.Pages.Msg":{"args":[],"tags":{"GuideMsg":["Pages.Guide.Msg"],"NotFoundMsg":["Pages.NotFound.Msg"],"TopMsg":["Pages.Top.Msg"],"Docs_Folder_Msg":["Generated.Docs.Pages.Msg"]}},"Global.Msg":{"args":[],"tags":{"Msg":[]}},"Spa.Msg":{"args":["globalMsg","msg"],"tags":{"ChangedUrl":["Url.Url"],"ClickedLink":["Browser.UrlRequest"],"Global":["globalMsg"],"Page":["msg"],"FadeInLayout":[],"FadeInPage":["Url.Url"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Maybe.Maybe":{"args":["a"],"tags":{"Just":["a"],"Nothing":[]}},"Generated.Docs.Pages.Msg":{"args":[],"tags":{"DynamicMsg":["Pages.Docs.Dynamic.Msg"],"TopMsg":["Pages.Docs.Top.Msg"],"Dynamic_Folder_Msg":["Generated.Docs.Dynamic.Pages.Msg"]}},"Basics.Never":{"args":[],"tags":{"JustOneMore":["Basics.Never"]}},"Url.Protocol":{"args":[],"tags":{"Http":[],"Https":[]}},"String.String":{"args":[],"tags":{"String":[]}},"Browser.UrlRequest":{"args":[],"tags":{"Internal":["Url.Url"],"External":["String.String"]}},"Generated.Docs.Dynamic.Pages.Msg":{"args":[],"tags":{"DynamicMsg":["Pages.Docs.Dynamic.Dynamic.Msg"]}},"Pages.Docs.Dynamic.Msg":{"args":[],"tags":{"Msg":[]}},"Pages.Docs.Dynamic.Dynamic.Msg":{"args":[],"tags":{"Msg":[]}}}}})}});}(this));

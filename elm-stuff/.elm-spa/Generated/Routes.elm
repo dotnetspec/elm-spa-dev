@@ -7,6 +7,7 @@ module Generated.Routes exposing
 
 import Generated.Route
 import Generated.Docs.Route
+import Generated.Docs.Dynamic.Route
 import Url.Parser as Parser exposing ((</>), Parser, map, s, string, top)
 
 
@@ -33,6 +34,7 @@ type alias Routes =
     , top : Route
     , docs_top : Route
     , docs_dynamic : String -> Route
+    , docs_dynamic_dynamic : String -> String -> Route
     }
 
 
@@ -51,6 +53,11 @@ routes =
         \param1 ->
             Generated.Route.Docs_Folder <|
                 Generated.Docs.Route.Dynamic param1 { param1 = param1 }
+    , docs_dynamic_dynamic =
+        \param1 param2 ->
+            Generated.Route.Docs_Folder <|
+                Generated.Docs.Route.Dynamic_Folder param1 <|
+                    Generated.Docs.Dynamic.Route.Dynamic param2 { param1 = param1, param2 = param2 }
     }
  
 
@@ -66,4 +73,6 @@ parsers =
         (s "docs" </> top)
     , map routes.docs_dynamic
         (s "docs" </> string)
+    , map routes.docs_dynamic_dynamic
+        (s "docs" </> string </> string)
     ]
