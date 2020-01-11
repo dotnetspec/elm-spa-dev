@@ -34,7 +34,7 @@ viewHeader currentRoute =
         , width (fill |> maximum 480)
         ]
         [ viewLink currentRoute ( "home", routes.top )
-        , el [ Font.size 16 ] (viewLink currentRoute ( "Docs", routes.docs ))
+        , el [ Font.size 16 ] (viewLink currentRoute ( "Docs", routes.docs_top ))
         , el [ Font.size 16 ] (viewLink currentRoute ( "Guide", routes.guide ))
         ]
 
