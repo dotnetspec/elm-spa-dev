@@ -31,7 +31,7 @@ viewHeader currentRoute =
         [ spacing 16
         , paddingEach { top = 32, left = 16, right = 16, bottom = 0 }
         , centerX
-        , width (fill |> maximum 480)
+        , width (fill |> maximum 720)
         ]
         [ viewLink currentRoute ( "home", routes.top )
         , el [ Font.size 16 ] (viewLink currentRoute ( "Docs", routes.docs_top ))
