@@ -2,7 +2,9 @@ module Pages.Docs.Dynamic exposing (Model, Msg, page)
 
 import Element exposing (..)
 import Generated.Docs.Params as Params
+import Http
 import Spa.Page
+import Ui
 import Utils.Spa exposing (Page)
 
 
@@ -22,13 +24,16 @@ page =
 
 
 type alias Model =
-    { slug : String }
+    { content : String }
 
 
 init : Params.Dynamic -> ( Model, Cmd Msg )
 init { param1 } =
-    ( { slug = param1 }
-    , Cmd.none
+    ( { content = "" }
+    , Http.get
+        { expect = Http.expectString FetchedContent
+        , url = "/content/docs/" ++ param1 ++ ".md"
+        }
     )
 
 
@@ -37,14 +42,21 @@ init { param1 } =
 
 
 type Msg
-    = Msg
+    = FetchedContent (Result Http.Error String)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model
-    , Cmd.none
-    )
+    case msg of
+        FetchedContent (Ok markdown) ->
+            ( { model | content = markdown }
+            , Cmd.none
+            )
+
+        FetchedContent (Err _) ->
+            ( { model | content = "there was an error" }
+            , Cmd.none
+            )
 
 
 
@@ -63,4 +75,4 @@ subscriptions model =
 
 view : Model -> Element Msg
 view model =
-    text model.slug
+    Ui.markdown model.content

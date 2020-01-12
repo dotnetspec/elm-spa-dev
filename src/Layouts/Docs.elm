@@ -19,7 +19,7 @@ view { page } =
             }
         ]
         [ el [ width (px 200) ] viewSidebar
-        , el [ alignTop ] page
+        , el [ alignTop, width fill ] page
         ]
 
 
